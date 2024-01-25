@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { MainLayout } from "@/presentation/layouts/main.layout";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
@@ -29,7 +30,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <MainLayout>{children}</MainLayout>
+      </body>
     </html>
   );
 }
