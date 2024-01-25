@@ -2,7 +2,7 @@ import Link from "next/link";
 import { OrangeLayoutProps } from "./types";
 import { ROUTES } from "@/presentation/@consts/routes";
 
-export function OrangeLayout({}: OrangeProps) {
+export function OrangeLayout({}: OrangeLayoutProps) {
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center">
       <h1 className="text-xl font-bold">Orange</h1>
