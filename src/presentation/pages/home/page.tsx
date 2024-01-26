@@ -1,5 +1,7 @@
+import { makeRemoteLoadFruits } from "@/main/usecases/remote/fruits";
 import { HomeLayout } from "./layout";
 
-export function HomePage() {
-  return <HomeLayout />;
+export async function HomePage() {
+  const fruitsList = await makeRemoteLoadFruits().load();
+  return <HomeLayout fruitsList={fruitsList} />;
 }

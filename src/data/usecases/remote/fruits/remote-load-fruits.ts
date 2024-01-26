@@ -1,4 +1,4 @@
-import { FruitModel } from "@/domain/@models/fruits";
+import { FruitsModel } from "@/domain/@models/fruits";
 import { LoadFruits } from "@/domain/usecases/fruits";
 import { HttpClient, HttpStatusCode } from "@/data/http";
 import { UnauthorizedError, UnexpectedError } from "@/data/errors";
@@ -8,6 +8,7 @@ export class RemoteLoadFruits implements LoadFruits {
     private readonly url: string,
     private readonly httpClient: HttpClient<RemoteLoadFruits.Model>,
   ) {}
+
   async load(): Promise<RemoteLoadFruits.Model> {
     const httpResponse = await this.httpClient.request({
       data: {
@@ -32,5 +33,5 @@ export class RemoteLoadFruits implements LoadFruits {
 }
 
 namespace RemoteLoadFruits {
-  export type Model = FruitModel[] | [];
+  export type Model = FruitsModel | [];
 }

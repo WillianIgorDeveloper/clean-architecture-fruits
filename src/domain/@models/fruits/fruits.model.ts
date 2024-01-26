@@ -1,4 +1,4 @@
-export type FruitInformationModel = {
+export type FruitsModel = {
   id: number;
   name: string;
   family: string;
@@ -11,4 +11,4 @@ export type FruitInformationModel = {
     carbohydrates: number;
     protein: number;
   };
-};
+}[];

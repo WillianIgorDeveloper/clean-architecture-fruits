@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} bg-zinc-100 text-zinc-900`}>
         <MainLayout>{children}</MainLayout>
       </body>
     </html>

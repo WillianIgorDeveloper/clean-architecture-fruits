@@ -3,6 +3,5 @@ import { MangoLayout } from "./layout";
 
 export async function MangoPage() {
   const fruitInformation = await makeRemoteLoadFruitsInformation().load({ name: "mango" });
-  console.log(fruitInformation);
-  return <MangoLayout />;
+  return <MangoLayout fruitInformation={fruitInformation} />;
 }

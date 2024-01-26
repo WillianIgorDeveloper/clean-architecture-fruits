@@ -18,7 +18,7 @@ export class RemoteLoadFruitInformation implements LoadFruitInformation {
       },
     });
 
-    const remoteFruitInformationResponse = httpResponse.body || {};
+    const remoteFruitInformationResponse = httpResponse.body || null;
 
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
@@ -34,5 +34,5 @@ export class RemoteLoadFruitInformation implements LoadFruitInformation {
 }
 
 namespace RemoteLoadFruitInformation {
-  export type Model = FruitInformationModel | {};
+  export type Model = FruitInformationModel | null;
 }

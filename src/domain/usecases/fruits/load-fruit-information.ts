@@ -5,5 +5,5 @@ export interface LoadFruitInformation {
 }
 
 namespace LoadFruitInformation {
-  export type Model = FruitInformationModel | {};
+  export type Model = FruitInformationModel | null;
 }
