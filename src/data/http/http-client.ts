@@ -5,11 +5,11 @@ export type HttpRequest = {
   method: HttpMethod;
   body?: any;
   headers?: any;
-  params?: string;
+  params?: string[];
 };
 
 export interface HttpClient<R = any> {
-  request: (data: HttpRequest) => Promise<HttpResponse<R>>;
+  request: ({ data }: { data: HttpRequest }) => Promise<HttpResponse<R>>;
 }
 
 export enum HttpStatusCode {
