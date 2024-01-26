@@ -1,8 +1,7 @@
-import { FruitModel } from "@/domain/@models/fruits/fruit.model";
-import { LoadFruits } from "@/domain/usecases/fruits/load-fruits";
-import { HttpClient, HttpStatusCode } from "../http/http-client";
-import { UnauthorizedError } from "@/data/errors/unauthorized-error";
-import { UnexpectedError } from "@/data/errors/unexpected-error";
+import { FruitModel } from "@/domain/@models/fruits";
+import { LoadFruits } from "@/domain/usecases/fruits";
+import { HttpClient, HttpStatusCode } from "@/data/http";
+import { UnauthorizedError, UnexpectedError } from "@/data/errors";
 
 export class RemoteLoadFruits implements LoadFruits {
   constructor(
@@ -16,11 +15,11 @@ export class RemoteLoadFruits implements LoadFruits {
       method: "get",
     });
 
-    const foods = httpResponse.body || [];
+    const remoteFoodsResponse = httpResponse.body || [];
 
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
-        return foods;
+        return remoteFoodsResponse;
 
       case HttpStatusCode.unauthorized:
         throw new UnauthorizedError();
