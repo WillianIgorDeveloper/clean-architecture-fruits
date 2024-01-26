@@ -1,4 +1,4 @@
-export type FoodModel = {
+export type FruitModel = {
   id: string;
   name: string;
 };
