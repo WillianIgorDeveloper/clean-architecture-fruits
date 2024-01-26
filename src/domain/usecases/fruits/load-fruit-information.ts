@@ -1,7 +1,7 @@
-import { FruitInformationModel } from "@/domain/@models/fruits";
+import { FruitInformationModel } from "@/domain/@models/fruits/";
 
 export interface LoadFruitInformation {
-  load: ({ id }: { id: string }) => Promise<LoadFruitInformation.Model>;
+  load: ({ name }: { name: string }) => Promise<LoadFruitInformation.Model>;
 }
 
 namespace LoadFruitInformation {

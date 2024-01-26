@@ -8,11 +8,12 @@ export class RemoteLoadFruits implements LoadFruits {
     private readonly url: string,
     private readonly httpClient: HttpClient<RemoteLoadFruits.Model>,
   ) {}
-
   async load(): Promise<RemoteLoadFruits.Model> {
     const httpResponse = await this.httpClient.request({
-      url: this.url,
-      method: "get",
+      data: {
+        url: this.url,
+        method: "get",
+      },
     });
 
     const remoteFoodsResponse = httpResponse.body || [];

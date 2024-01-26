@@ -9,11 +9,13 @@ export class RemoteLoadFruitInformation implements LoadFruitInformation {
     private readonly httpClient: HttpClient<RemoteLoadFruitInformation.Model>,
   ) {}
 
-  async load({ id }: { id: string }): Promise<RemoteLoadFruitInformation.Model> {
+  async load({ name }: { name: string }): Promise<RemoteLoadFruitInformation.Model> {
     const httpResponse = await this.httpClient.request({
-      url: this.url,
-      method: "get",
-      params: id,
+      data: {
+        url: this.url,
+        method: "get",
+        params: [name],
+      },
     });
 
     const remoteFruitInformationResponse = httpResponse.body || {};

@@ -12,9 +12,11 @@ export class RemoteEditFruit implements EditFruit {
 
   async edit({ fruit }: { fruit: RemoteEditFruit.Model }): Promise<RemoteEditFruit.Respone> {
     const httpResponse = await this.httpClient.request({
-      url: this.url,
-      method: "put",
-      body: fruit,
+      data: {
+        url: this.url,
+        method: "put",
+        body: fruit,
+      },
     });
 
     const remoteFruitResponse = {

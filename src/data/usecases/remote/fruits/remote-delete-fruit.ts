@@ -11,9 +11,11 @@ export class RemoteDeleteFruit implements DeleteFruit {
 
   async delete({ id }: { id: string }): Promise<RemoteDeleteFruit.Response> {
     const httpResponse = await this.httpClient.request({
-      url: this.url,
-      method: "delete",
-      params: id,
+      data: {
+        url: this.url,
+        method: "delete",
+        params: [id],
+      },
     });
 
     const response = {

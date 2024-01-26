@@ -12,9 +12,11 @@ export class RemoteCreateFruit implements CreateFruit {
 
   async create({ body }: { body: CreateFruit.Body }): Promise<CreateFruit.Response> {
     const httpResponse = await this.httpClient.request({
-      url: this.url,
-      method: "post",
-      body,
+      data: {
+        url: this.url,
+        method: "post",
+        body,
+      },
     });
 
     const remoteFruitResponse = {
